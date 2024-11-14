@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert'; // For parsing JSON response
 
+import 'package:provider/provider.dart'; // Import Provider
+import 'providers/app_state.dart'; // Import AppState
+
 // NetworkService class to handle the network request
 class NetworkService {
   // Method to fetch data from an API
@@ -31,7 +34,14 @@ class NetworkService {
 }
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AppState()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -106,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text('Fetched Data from API:'),
             Text(
               _fetchedData,
-              style: TextStyle(fontSize: 16, color: Colors.green),
+              style: const TextStyle(fontSize: 16, color: Colors.green),
             ),
           ],
         ),
