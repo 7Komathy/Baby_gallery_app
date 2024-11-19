@@ -18,6 +18,19 @@ class LoginScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment
                 .center, // Align the children in the center vertically
             children: [
+              // Add the text "The Tiny Toes" above the username field
+              Text(
+                'The Tiny Toes',
+                style: TextStyle(
+                  fontSize: 24.0, // Set the font size for the title
+                  fontWeight: FontWeight.bold, // Make the text bold
+                  color: Colors.black, // Set the text color
+                ),
+              ),
+              SizedBox(
+                  height:
+                      20), // Add some space between the title and the username field
+
               Container(
                 width: 300.0, // Set the desired width
                 child: TextFormField(
@@ -27,7 +40,6 @@ class LoginScreen extends StatelessWidget {
                     labelStyle: TextStyle(color: Colors.grey),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0)),
-                    prefixIcon: Icon(Icons.person, color: Colors.blue),
                   ),
                 ),
               ),
@@ -41,7 +53,6 @@ class LoginScreen extends StatelessWidget {
                     labelStyle: TextStyle(color: Colors.grey),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0)),
-                    prefixIcon: Icon(Icons.lock, color: Colors.blue),
                   ),
                   obscureText: true,
                 ),
